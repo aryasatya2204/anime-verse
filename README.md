@@ -14,32 +14,30 @@ Dibangun dengan prinsip **Clean Architecture**, aplikasi ini menggunakan **Provi
 ## 👤 Identitas Pengembang
 
 | Atribut | Detail |
-| :--- | :--- |
+|---------|--------|
 | **Nama** | Muhammad Aryasatya |
 | **NIM** | 231401094 |
 | **Lab** | 2 |
 
 ---
 
-## 📸 Dokumentasi Aplikasi (Screenshots)
-
-Berikut adalah tampilan antarmuka aplikasi AnimeVerse.
+## 📸 Dokumentasi Aplikasi
 
 ### 🔐 Autentikasi
 | Sign In | Sign Up |
-|:---:|:---:|
+|:-------:|:-------:|
 | ![Sign In](documentation/signin.png) | ![Sign Up](documentation/signup.png) |
 | *Login dengan Email/Google* | *Registrasi Akun Baru* |
 
 ### 🎬 Fitur Utama
 | Home (Dashboard) | Pencarian & Filter | Detail Anime |
-|:---:|:---:|:---:|
+|:----------------:|:------------------:|:------------:|
 | ![Home](documentation/home.png) | ![Search](documentation/search.png) | ![Detail](documentation/detail.png) |
 | *Top Anime & Kategori* | *Cari Anime & Genre* | *Info Lengkap & Sinopsis* |
 
 ### 👤 User & Favorit
 | List Favorit | Profil User |
-|:---:|:---:|
+|:------------:|:-----------:|
 | ![Favorites](documentation/favorites.png) | ![Profile](documentation/profile.png) |
 | *Koleksi Pribadi (Cloud)* | *Pengaturan Akun* |
 
@@ -48,31 +46,31 @@ Berikut adalah tampilan antarmuka aplikasi AnimeVerse.
 ## ✨ Fitur Utama
 
 ### 🔐 Autentikasi & Pengguna
-* **Login & Register:** Autentikasi aman menggunakan Email & Password via Firebase Auth.
-* **Google Sign-In:** Login cepat satu ketukan menggunakan akun Google.
-* **Manajemen Profil:** Pengguna dapat mengubah password, melihat informasi akun, dan logout dengan aman.
+- **Login & Register:** Autentikasi aman menggunakan Email & Password via Firebase Auth
+- **Google Sign-In:** Login cepat satu ketukan menggunakan akun Google
+- **Manajemen Profil:** Pengguna dapat mengubah password, melihat informasi akun, dan logout dengan aman
 
 ### 🎬 Eksplorasi Anime
-* **Top Anime:** Menampilkan daftar anime terpopuler saat ini (menggunakan [Jikan API v4](https://jikan.moe/)).
-* **Pencarian Pintar:** Cari anime berdasarkan judul dengan fitur *debounce* untuk efisiensi API.
-* **Filter Genre:** Temukan anime berdasarkan kategori (Action, Adventure, Fantasy, dll).
-* **Detail Lengkap:** Sinopsis, rating, jumlah episode, status tayang, dan trailer gambar.
+- **Top Anime:** Menampilkan daftar anime terpopuler saat ini (menggunakan [Jikan API v4](https://jikan.moe/))
+- **Pencarian Pintar:** Cari anime berdasarkan judul dengan fitur *debounce* untuk efisiensi API
+- **Filter Genre:** Temukan anime berdasarkan kategori (Action, Adventure, Fantasy, dll)
+- **Detail Lengkap:** Sinopsis, rating, jumlah episode, status tayang, dan trailer gambar
 
 ### ❤️ Favorit (Cloud Sync)
-* **Simpan ke Favorit:** Menandai anime yang disukai.
-* **Sinkronisasi Real-time:** Data favorit disimpan di **Cloud Firestore**, sehingga tetap tersinkronisasi meskipun berganti perangkat.
+- **Simpan ke Favorit:** Menandai anime yang disukai
+- **Sinkronisasi Real-time:** Data favorit disimpan di **Cloud Firestore**, sehingga tetap tersinkronisasi meskipun berganti perangkat
 
 ### 🎨 UI/UX Modern
-* **Responsive Grid:** Tampilan kartu anime yang menyesuaikan ukuran layar (ponsel & tablet).
-* **Glassmorphism:** Desain antarmuka transparan dan elegan dengan tema gelap.
-* **Optimasi Gambar:** Menggunakan *caching* gambar untuk menghemat kuota dan mempercepat loading.
+- **Responsive Grid:** Tampilan kartu anime yang menyesuaikan ukuran layar (ponsel & tablet)
+- **Glassmorphism:** Desain antarmuka transparan dan elegan dengan tema gelap
+- **Optimasi Gambar:** Menggunakan *caching* gambar untuk menghemat kuota dan mempercepat loading
 
 ---
 
 ## 🛠️ Teknologi yang Digunakan
 
 | Kategori | Teknologi / Library | Deskripsi |
-| :--- | :--- | :--- |
+|----------|---------------------|-----------|
 | **Framework** | Flutter & Dart | SDK utama pengembangan aplikasi |
 | **State Management** | Provider | Mengelola state aplikasi (AppState & Auth) |
 | **Navigation** | GoRouter | Routing, deep linking, dan manajemen stack navigasi |
@@ -86,150 +84,248 @@ Berikut adalah tampilan antarmuka aplikasi AnimeVerse.
 
 ## 📂 Struktur Project
 
-Berikut adalah pemetaan struktur direktori source code `lib/`:
-
-```text
+```
 lib/
 ├── config/
-│   └── routes.dart             # Konfigurasi GoRouter dan Guard navigasi
+│   └── routes.dart                  # Konfigurasi GoRouter dan Guard navigasi
 ├── models/
-│   └── anime.dart              # Data Model untuk objek Anime (JSON Serialization)
+│   └── anime.dart                   # Data Model untuk objek Anime (JSON Serialization)
 ├── providers/
-│   ├── app_state_provider.dart # Logic utama data anime & interaksi UI
-│   └── auth_provider.dart      # Logic autentikasi & bridge ke UI
+│   ├── app_state_provider.dart      # Logic utama data anime & interaksi UI
+│   └── auth_provider.dart           # Logic autentikasi & bridge ke UI
 ├── repositories/
-│   └── anime_repository.dart   # Layer komunikasi ke Jikan API
+│   └── anime_repository.dart        # Layer komunikasi ke Jikan API
 ├── screens/
-│   ├── detail_screen.dart      # Halaman detail anime
-│   ├── favorite_screen.dart    # Halaman list favorit user
-│   ├── home_screen.dart        # Dashboard utama
-│   ├── profile_screen.dart     # Halaman profil & settings
-│   ├── signin_screen.dart      # Halaman login
-│   └── signup_screen.dart      # Halaman registrasi
+│   ├── detail_screen.dart           # Halaman detail anime
+│   ├── favorite_screen.dart         # Halaman list favorit user
+│   ├── home_screen.dart             # Dashboard utama
+│   ├── profile_screen.dart          # Halaman profil & settings
+│   ├── signin_screen.dart           # Halaman login
+│   └── signup_screen.dart           # Halaman registrasi
 ├── services/
-│   ├── auth/                   # Service layer untuk Firebase Auth
-│   └── firestore_service.dart  # Service layer untuk Cloud Firestore
+│   ├── auth/                        # Service layer untuk Firebase Auth
+│   └── firestore_service.dart       # Service layer untuk Cloud Firestore
 ├── utils/
-│   ├── snackbar_helper.dart    # Helper global untuk notifikasi
-│   └── validators.dart         # Validasi input form (Regex Email, Password)
+│   ├── snackbar_helper.dart         # Helper global untuk notifikasi
+│   └── validators.dart              # Validasi input form (Regex Email, Password)
 ├── widgets/
-│   ├── anime_card.dart         # Widget kartu anime grid
-│   ├── anime_view.dart         # Layout grid responsif
-│   ├── app_scaffold.dart       # Wrapper dasar halaman dengan background
+│   ├── anime_card.dart              # Widget kartu anime grid
+│   ├── anime_view.dart              # Layout grid responsif
+│   ├── app_scaffold.dart            # Wrapper dasar halaman dengan background
 │   ├── bottom_navigation_shell.dart # Navigasi bar bawah (Persistent)
-│   ├── favorite_anime_card.dart # Widget kartu list favorit
-│   ├── genre_list.dart         # Horizontal list filter genre
-│   ├── gradient_background.dart # Background gradien aplikasi
-│   └── profile_button.dart     # Tombol menu profil
-└── main.dart                   # Entry point & inisialisasi App
+│   ├── favorite_anime_card.dart     # Widget kartu list favorit
+│   ├── genre_list.dart              # Horizontal list filter genre
+│   ├── gradient_background.dart     # Background gradien aplikasi
+│   └── profile_button.dart          # Tombol menu profil
+└── main.dart                        # Entry point & inisialisasi App
+```
 
-## 🚀 Cara Menjalankan Aplikasi (Installation Guide)
+---
 
-Ikuti langkah-langkah berikut untuk menjalankan aplikasi di komputer lokal Anda.
+## 🚀 Instalasi & Konfigurasi
 
-### 1. Prasyarat Sistem
+### 📋 Prasyarat Sistem
+
 Pastikan Anda telah menginstal:
-* **Flutter SDK:** Versi 3.0 atau lebih baru.
-* **Java (JDK):** Versi 11 atau 17.
-* **IDE:** Android Studio atau VS Code (dengan ekstensi Flutter & Dart).
-* **Emulator Android** atau **Perangkat Fisik** (Aktifkan USB Debugging).
 
-### 2. Clone Repository & Install Dependencies
+- **Flutter SDK:** Versi 3.0 atau lebih baru
+- **Java (JDK):** Versi 11 atau 17
+- **IDE:** Android Studio atau VS Code (dengan ekstensi Flutter & Dart)
+- **Emulator Android** atau **Perangkat Fisik** (dengan USB Debugging aktif)
+
+### 📥 Step 1: Clone Repository
+
 ```bash
-# Clone repository ini
-git clone [https://github.com/aryasatya2204/anime-verse.git](https://github.com/aryasatya2204/anime-verse.git)
+# Clone repository
+git clone https://github.com/aryasatya2204/anime-verse.git
 
 # Masuk ke folder project
 cd anime-verse
 
-# Install library/dependencies yang dibutuhkan
+# Install dependencies
 flutter pub get
+```
 
-## ⚙️ Konfigurasi Firebase & Build APK
+### 🔥 Step 2: Konfigurasi Firebase
 
-Panduan langkah demi langkah untuk menghubungkan project dengan Firebase, mengatur tanda tangan digital (Signing), dan membangun file APK siap rilis.
+#### 2.1 Buat Firebase Project
 
-### 1. Setup Firebase Project (Wajib)
-Project ini membutuhkan koneksi ke Firebase agar fitur Login dan Database berfungsi.
+1. Buka [Firebase Console](https://console.firebase.google.com/)
+2. Klik **"Add project"** dan buat project baru (contoh: **AnimeVerse**)
+3. Ikuti wizard setup hingga selesai
 
-1. Buka [Firebase Console](https://console.firebase.google.com/).
-2. Buat project baru (misal: **AnimeVerse**).
-3. Tambahkan aplikasi **Android** dengan detail berikut:
-   * **Package Name:** `com.example.project_lab`
-     *(Pastikan sesuai dengan `applicationId` di `android/app/build.gradle.kts`)*.
-   * **App Nickname:** AnimeVerse (Opsional).
-4. Download file **`google-services.json`**.
-5. Pindahkan file tersebut ke direktori project Anda:
-   `android/app/google-services.json`
+#### 2.2 Tambahkan Android App
 
-### 2. Aktifkan Fitur Firebase
-Di dashboard Firebase Console, aktifkan layanan berikut:
+1. Di Firebase Console, klik **"Add app"** dan pilih **Android**
+2. Masukkan informasi berikut:
+    - **Package Name:** `com.example.project_lab`
+      > ⚠️ **Penting:** Pastikan sesuai dengan `applicationId` di `android/app/build.gradle.kts`
+    - **App Nickname:** AnimeVerse (opsional)
+3. Klik **"Register app"**
 
-* **Authentication:**
-  * Masuk ke menu *Build > Authentication > Sign-in method*.
-  * Aktifkan **Email/Password**.
-  * Aktifkan **Google**.
-* **Cloud Firestore:**
-  * Masuk ke menu *Build > Firestore Database*.
-  * Klik **Create Database**.
-  * Pilih lokasi server (disarankan: *Singapore* atau *Jakarta* jika ada).
-  * Pilih **Start in Test Mode** (untuk pengembangan awal).
+#### 2.3 Download google-services.json
 
-### 3. Konfigurasi Keystore (Signing Key)
-Untuk keamanan dan rilis, project ini tidak menyimpan password keystore di dalam kode, melainkan menggunakan file properti terpisah.
+1. Download file **`google-services.json`** dari Firebase Console
+2. Pindahkan file ke: `android/app/google-services.json`
 
-1. Buat file baru bernama `key.properties` di dalam folder `android/`.
-2. Salin konfigurasi berikut ke dalamnya:
+```
+android/
+└── app/
+    └── google-services.json  ← Letakkan di sini
+```
+
+#### 2.4 Aktifkan Firebase Authentication
+
+1. Di Firebase Console, buka **Build > Authentication**
+2. Klik tab **"Sign-in method"**
+3. Aktifkan metode berikut:
+    - ✅ **Email/Password**
+    - ✅ **Google**
+
+#### 2.5 Aktifkan Cloud Firestore
+
+1. Di Firebase Console, buka **Build > Firestore Database**
+2. Klik **"Create database"**
+3. Pilih **Start in test mode** (untuk development)
+4. Pilih lokasi server terdekat (contoh: **Singapore** atau **Jakarta**)
+5. Klik **"Enable"**
+
+### 🔐 Step 3: Konfigurasi Keystore (Signing)
+
+#### 3.1 Buat File key.properties
+
+Buat file baru `android/key.properties` dengan isi:
 
 ```properties
-storePassword=passwordKeystoreAnda
-keyPassword=passwordKeyAnda
+storePassword=your_keystore_password
+keyPassword=your_key_password
 keyAlias=upload
 storeFile=../app/upload-keystore.jks
+```
 
-3. Jika Anda belum memiliki file keystore (`.jks`), buat baru dengan menjalankan perintah ini di terminal:
-   *(Pastikan password yang Anda masukkan sesuai dengan yang ditulis di `key.properties`)*
+> 💡 **Ganti** `your_keystore_password` dan `your_key_password` dengan password Anda
+
+#### 3.2 Generate Keystore (Jika Belum Punya)
+
+Jalankan perintah berikut di terminal:
 
 ```bash
 keytool -genkey -v -keystore android/app/upload-keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias upload
+```
 
-### 4. Registrasi SHA-1 (Penting untuk Google Login)
-Agar Google Sign-In berfungsi (menghindari error `DEVELOPER_ERROR` atau `Code 10`), Anda harus mendaftarkan sidik jari sertifikat aplikasi ke Firebase.
+Ikuti instruksi dan masukkan password yang sama dengan di `key.properties`.
 
-1. Jalankan perintah berikut di terminal untuk melihat kode SHA-1:
+### 🔑 Step 4: Daftarkan SHA-1 Fingerprint
 
-   ```bash
-   cd android
-   ./gradlew signingReport
-   
-1. (Tunggu hingga proses selesai. Akan muncul daftar kunci untuk variant `debug` dan `release`).
-2. Salin kode **SHA1** dari bagian **Variant: release** (dan `debug` jika perlu).
-3. Buka **Firebase Console** > **Project Settings** > **General**.
-4. Scroll ke bawah ke bagian **Your Apps**, klik **Add fingerprint**.
-5. Tempel kode SHA-1 tadi dan simpan.
+> ⚠️ **Wajib untuk Google Sign-In!** Tanpa ini, Google login akan error.
 
-> **PENTING:** Jika file `google-services.json` berubah, download ulang dan timpa file yang lama di folder `android/app/`.
-
-## 5. Membangun APK (Build Release)
-
-Setelah semua konfigurasi selesai, Anda dapat membuat file APK yang siap diinstal atau diupload ke Play Store.
-
-Kembali ke root folder project (jika masih di folder `android`):
+#### 4.1 Dapatkan SHA-1
 
 ```bash
-cd ..
+cd android
+./gradlew signingReport
+```
 
-Jalankan perintah build:
+atau di Windows:
+
+```bash
+cd android
+gradlew.bat signingReport
+```
+
+#### 4.2 Salin SHA-1
+
+Cari bagian **Variant: release** dan salin kode **SHA1** (format: `AA:BB:CC:...`)
+
+#### 4.3 Tambahkan ke Firebase
+
+1. Buka **Firebase Console > Project Settings > General**
+2. Scroll ke **Your apps** > Android app
+3. Klik **"Add fingerprint"**
+4. Paste SHA-1 yang telah disalin
+5. Klik **"Save"**
+
+> 💡 **Tips:** Daftarkan juga SHA-1 dari **Variant: debug** jika ingin test Google Sign-In di mode development
+
+---
+
+## 🏗️ Build APK
+
+### Development Build (Debug)
+
+```bash
+flutter build apk --debug
+```
+
+### Production Build (Release)
 
 ```bash
 flutter build apk --release
+```
 
-Tunggu proses selesai. File APK Anda akan berada di:  
-📂 `build/app/outputs/flutter-apk/app-release.apk`
+File APK akan tersimpan di:
 
-## 📦 Cara Menginstal APK ke HP
+```
+build/app/outputs/flutter-apk/app-release.apk
+```
 
-1. Pindahkan file `app-release.apk` ke HP Anda (via USB/WhatsApp/Drive).
-2. Buka file tersebut di HP.
-3. Jika diminta, izinkan **instalasi dari sumber tidak dikenal** (Unknown Sources).
-4. Klik **Install**.
+---
+
+## 📱 Instalasi APK ke Perangkat
+
+### Metode 1: Via USB
+
+1. Sambungkan HP ke komputer via USB
+2. Aktifkan **USB Debugging** di HP
+3. Jalankan:
+
+```bash
+flutter install
+```
+
+### Metode 2: Manual
+
+1. Transfer file `app-release.apk` ke HP (via WhatsApp/Google Drive/USB)
+2. Buka file di HP
+3. Izinkan **"Install from Unknown Sources"** jika diminta
+4. Klik **"Install"**
+
+---
+
+## 🐛 Troubleshooting
+
+### ❌ Google Sign-In Error (Code 10 / DEVELOPER_ERROR)
+
+**Solusi:**
+- Pastikan SHA-1 sudah terdaftar di Firebase
+- Download ulang `google-services.json` dan timpa yang lama
+- Rebuild aplikasi: `flutter clean && flutter build apk --release`
+
+### ❌ Firebase Connection Failed
+
+**Solusi:**
+- Cek apakah `google-services.json` ada di `android/app/`
+- Pastikan package name di Firebase sama dengan di `build.gradle.kts`
+- Sinkronkan gradle: `cd android && ./gradlew --refresh-dependencies`
+
+### ❌ Keystore Error saat Build
+
+**Solusi:**
+- Periksa password di `key.properties` sudah benar
+- Pastikan path `storeFile` mengarah ke file `.jks` yang valid
+
+---
+
+## 📄 Lisensi
+
+Project ini menggunakan lisensi [MIT License](LICENSE).
+
+---
+
+## 🙏 Kontribusi
+
+Kontribusi sangat diterima! Silakan fork repository ini dan submit pull request.
+
+---
+
+**Dibuat oleh Muhammad Aryasatya**
